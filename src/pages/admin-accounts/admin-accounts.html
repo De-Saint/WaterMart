@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu" color="primary"></ion-icon>
+    </button>
+    <ion-title>
+      <span class="blacktext">Accounts</span>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content >
+  <ion-card>
+    <ion-card-header color="primary">
+      <b> My Account</b>
+    </ion-card-header>
+    <ion-card-content>
+      <div>
+        <ion-item>
+          <ion-label>Total Number of Transactions</ion-label>
+          <ion-badge item-right class="newColor"> {{transactionnumber}}</ion-badge>
+        </ion-item>
+        <ion-item>
+          <ion-label>P-Per-T Balance</ion-label>
+          <ion-badge item-right class="newColor">{{totalbalance | currency: 'NGN': '1.2-2'}}</ion-badge>
+        </ion-item>
+        <ion-item>
+          <ion-label>M-Fixed-R</ion-label>
+          <ion-badge item-right class="newColor">{{totalmonthlybal | currency: 'NGN': '1.2-2'}}</ion-badge>
+        </ion-item>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="neg-margin">
+    <ion-card-header color="primary">
+      <b>Payment Plan Stats</b>
+    </ion-card-header>
+    <ion-card-content class="mini-flow">
+      <ion-segment [(ngModel)]="bal">
+        <ion-segment-button value="ppt" (click)="getTransaction()">
+          Percentage Per Transaction
+        </ion-segment-button>
+        <ion-segment-button value="mfr" (click)="getRate()">
+          Monthly Fixed Rate
+        </ion-segment-button>
+      </ion-segment>
+      <div [ngSwitch]="bal">
+        <ion-list *ngSwitchCase="'ppt'">
+          <ion-item *ngFor="let supplier of suppliers">
+            <i class="fa fa-user-circle slighly-largetext marginright"></i>
+            {{supplier.business_name}}
+            <ion-note item-end class="blacktext">
+              {{supplier.PaymentAmount | currency: 'NGN': '1.2-2'}}
+            </ion-note>
+          </ion-item>
+          <div class="marginleft paddingleft marginright paddingright marginbottom margintop" *ngIf="nouser === 'nouser'">
+            No Suppliers
+          </div>
+        </ion-list>
+        <ion-list *ngSwitchCase="'mfr'">
+          <ion-item *ngFor="let supplier of originalsuppliers">
+            <i class="fa fa-user-circle slighly-largetext marginright"></i>
+            {{supplier.business_name}}
+            <ion-note item-end class="blacktext">
+              {{supplier.PaymentAmount | currency: 'NGN': '1.2-2'}}
+            </ion-note>
+          </ion-item>
+          <div class="marginleft paddingleft marginright paddingright marginbottom margintop" *ngIf="nouser === 'nouser'">
+            No Suppliers
+          </div>
+        </ion-list>
+      </div>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>

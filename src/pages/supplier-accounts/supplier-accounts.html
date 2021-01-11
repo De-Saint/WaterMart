@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu" color="primary"></ion-icon>
+    </button>
+    <ion-title>
+      <span class="blacktext">Accounts</span>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content >
+  <ion-card>
+    <ion-card-header color="primary">
+      <b> My Account</b>
+    </ion-card-header>
+    <ion-card-content class="mini-flow">
+      <div>
+        <ion-item>
+          <ion-label>Total Number of Transactions</ion-label>
+          <ion-badge item-right class="newColor"> {{transactionnumber}}</ion-badge>
+        </ion-item>
+        <ion-item>
+          <ion-label>Total Balance</ion-label>
+         <ion-badge item-right class="newColor">{{totalbalance | currency: 'NGN': '1.2-2'}}</ion-badge>
+        </ion-item>
+      </div>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header color="primary">
+      <b> My Account With WaterMart</b>
+    </ion-card-header>
+    <ion-card-content class="mini-flow">
+      <div>
+        <ion-item>
+          <ion-label>Plan</ion-label>
+         <ion-badge item-right class="newColor">{{PaymentPlan}}</ion-badge>
+        </ion-item>
+        <ion-item>
+          <ion-label>WaterMart Balance</ion-label>
+         <ion-badge item-right class="newColor">{{PaymentAmount | currency: 'NGN': '1.2-2'}}</ion-badge>
+        </ion-item>
+        <ion-item>
+          <ion-label>Last Payment Date</ion-label>
+         <ion-badge item-right class="newColor">{{paydate}}</ion-badge>
+        </ion-item>
+        <ion-item>
+          <ion-label>Payment Due Date</ion-label>
+         <ion-badge item-right class="newColor">{{payduedate}}</ion-badge>
+        </ion-item>
+        <ion-item>
+          <ion-label>Payment Status</ion-label>
+         <ion-badge item-right class="newColor">{{paymentStatus}}</ion-badge>
+        </ion-item>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu" color="primary"></ion-icon>
+    </button>
+    <ion-title>
+      <span class="blacktext">Available Supplier(s)</span>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content >
+  <div class="for-admin">
+    <ion-searchbar [(ngModel)]="searchQuery" (input)="SearchSuppliers($event)"></ion-searchbar>
+    <ion-list>
+      <button ion-item detail-push *ngFor="let supplier of supplierlist" (click)="GoToDetails(supplier.supplier_userid, supplier.ProductID)">
+        <ion-avatar item-start item-left *ngIf="supplier.product_catid === '8'">
+          <img src="assets/img/cat8.jpg">
+        </ion-avatar>
+        <ion-avatar item-start item-left *ngIf="supplier.product_catid === '7'">
+          <img src="assets/img/cat7.jpg">
+        </ion-avatar>
+        <ion-avatar item-start  item-left *ngIf="supplier.product_catid === '6'">
+          <img src="assets/img/cat6.jpg">
+        </ion-avatar>
+        <ion-avatar item-start  item-left *ngIf="supplier.product_catid === '5'">
+          <img src="assets/img/cat5.jpg">
+        </ion-avatar>
+        <ion-avatar item-start item-left *ngIf="supplier.product_catid === '4'">
+          <img src="assets/img/cat4.jpg">
+        </ion-avatar>
+        <ion-avatar item-start item-left *ngIf="supplier.product_catid === '3'">
+          <img src="assets/img/cat3.jpg">
+        </ion-avatar>
+        <ion-avatar item-start item-left *ngIf="supplier.product_catid === '2'">
+          <img src="assets/img/cat2.jpg">
+        </ion-avatar>
+        <ion-avatar item-start item-left *ngIf="supplier.product_catid === '1'">
+          <img src="assets/img/cat1.jpg">
+        </ion-avatar>
+        <h2 class="hide" >{{supplier.supplier_userid}}</h2>
+        <ion-row class="normaltext">
+          <ion-col text-left>
+            {{supplier.business_name}}
+          </ion-col>
+          <ion-col text-right>
+            <span>{{supplier.price | currency: 'NGN': '1.2-2'}}</span>
+          </ion-col>
+        </ion-row>
+        <ion-row no-padding class="normaltext nopadding">
+          <ion-col text-left >
+            <div *ngIf="supplier.ratevalue >= '5'" class="starimg">
+              <img src="assets/img/star5.jpg">
+            </div>
+            <div *ngIf="supplier.ratevalue >= '4' && supplier?.ratevalue < '5'" class="starimg">
+              <img src="assets/img/star4.jpg">
+            </div>
+            <div *ngIf="supplier.ratevalue >= '3' && supplier?.ratevalue < '4'" class="starimg">
+              <img src="assets/img/star3.jpg">
+            </div>
+            <div *ngIf="supplier.ratevalue >= '2'  && supplier?.ratevalue < '3'" class="starimg">
+              <img src="assets/img/star2.jpg">
+            </div>
+            <div *ngIf="supplier.ratevalue >= '1' && supplier?.ratevalue < '2'" class="starimg">
+              <img src="assets/img/star1.jpg">
+            </div>
+            <div *ngIf="supplier.ratevalue < '1'">
+              <img src="assets/img/star0.jpg">
+            </div>
+          </ion-col>
+          <!-- <ion-col text-right>
+            <span> 5 stars</span>
+          </ion-col> -->
+        </ion-row>
+        <ion-icon name="arrow-dropright" item-right></ion-icon>
+      </button>
+    </ion-list>
+    <div class="marginleft paddingleft marginright paddingright marginbottom margintop slightly-largetext" *ngIf="nosup === 'empty'">
+      No suppliers
+    </div>
+  </div>
+</ion-content>

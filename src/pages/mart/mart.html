@@ -1,0 +1,127 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu" color="primary"></ion-icon>
+    </button>
+    <ion-title>
+      <span class="blacktext center">Water Market</span>
+    </ion-title>
+  </ion-navbar>
+  <ion-toolbar no-border class="neg-half-margintop">
+    <ion-segment [(ngModel)]="Mart">
+      <ion-segment-button value="domest" (click)="getBuyDomesticWater()">
+        Domestic
+      </ion-segment-button>
+      <ion-segment-button value="indust" (click)="getBuyIndustrialWater()">
+        Industrial
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="">
+  <div [ngSwitch]="Mart">
+    <ion-list *ngSwitchCase="'domest'">
+      <ion-toolbar no-border class="neg-half-margintop">
+        <ion-segment [(ngModel)]="SHOP">
+          <ion-segment-button value="BuyDomesticWater" (click)="getBuyDomesticWater()">
+            BUY WATER
+          </ion-segment-button>
+          <ion-segment-button value="BuyDomesticAccessory" (click)="getBuyDomesticAccessory()">
+            BUY ACCESSORIES
+          </ion-segment-button>
+        </ion-segment>
+      </ion-toolbar>
+      <div [ngSwitch]="SHOP">
+        <ion-list *ngSwitchCase="'BuyDomesticWater'">
+          <div class="product-tile" (click)="getSuppliers(1)">
+            <div class="product-image">
+              <img src="assets/img/cat1.jpg">
+            </div>
+            <div class="product-name half-marginbottom bold" >Sachet Water</div>
+          </div>
+          <div class="product-tile" (click)="getSuppliers(2)">
+            <div class="product-image">
+              <img src="assets/img/cat2.jpg">
+            </div>
+            <div class="product-name half-marginbottom bold">Bottle Water</div>
+          </div>
+          <div class="product-tile" (click)="getSuppliers(3)">
+            <div class="product-image">
+              <img src="assets/img/cat3.jpg">
+            </div>
+            <div class="product-name half-marginbottom bold">Dispenser Water</div>
+          </div>
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'BuyDomesticAccessory'">
+            <div class="product-tile" (click)="getSuppliers(5)">
+                <div class="product-image">
+                  <img src="assets/img/cat5.jpg">
+                </div>
+                <div class="product-name half-marginbottom bold">Empty Dispenser Bottle</div>
+              </div>
+              <div class="product-tile" (click)="getSuppliers(6)">
+                <div class="product-image">
+                  <img src="assets/img/cat6.jpg">
+                </div>
+                <div class="product-name half-marginbottom bold">Empty Bottle</div>
+              </div>
+              <div class="product-tile" (click)="getSuppliers(7)">
+                <div class="product-image">
+                  <img src="assets/img/cat7.jpg">
+                </div>
+                <div class="product-name half-marginbottom bold">Sachet Water Bags</div>
+              </div>
+              <div class="product-tile" (click)="getSuppliers(8)">
+                <div class="product-image">
+                  <img src="assets/img/cat8.jpg">
+                </div>
+                <div class="product-name half-marginbottom bold">Dispenser</div>
+              </div>
+          
+        </ion-list>
+      </div>
+    </ion-list>
+
+
+
+    <ion-list *ngSwitchCase="'indust'">
+        <div class="product-tile">
+            <div class="product-image" (click)="getSuppliers(4)">
+              <img src="assets/img/cat44.jpg">
+            </div>
+            <div class="product-name half-marginbottom bold">Tanker Water</div>
+          </div>
+        <!-- <div class="product-tile" *ngFor="let product of products" (click)="GotoProductPreview(product.id)">
+            <div class="product-image" *ngIf="product.product_catid === '8'">
+              <img src="assets/img/cat8.jpg">
+            </div>
+            <div class="product-image" *ngIf="product.product_catid === '7'">
+              <img src="assets/img/cat7.jpg">
+            </div>
+            <div class="product-image" *ngIf="product.product_catid === '6'">
+              <img src="assets/img/cat6.jpg">
+            </div>
+            <div class="product-image" *ngIf="product.product_catid === '5'">
+              <img src="assets/img/cat5.jpg">
+            </div>
+            <div class="product-image" *ngIf="product.product_catid === '4'">
+              <img src="assets/img/cat4.jpg">
+            </div>
+            <div class="product-image" *ngIf="product.product_catid === '3'">
+              <img src="assets/img/cat3.jpg">
+            </div>
+            <div class="product-image" *ngIf="product.product_catid === '2'">
+              <img src="assets/img/cat2.jpg">
+            </div>
+            <div class="product-image" *ngIf="product.product_catid === '1'">
+              <img src="assets/img/cat1.jpg">
+            </div>
+            <div class="product-name half-marginbottom bold">{{product.name}}</div>
+            <div class="product-property">{{product.properties}}</div>
+            <div class="product-price redtext">{{product.price | currency: 'NGN': '1.2-2'}}</div>
+          </div> -->
+    </ion-list>
+  </div>
+</ion-content>

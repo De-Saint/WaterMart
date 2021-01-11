@@ -1,0 +1,126 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu" color="primary"></ion-icon>
+    </button>
+    <ion-title>
+      <span class="blacktext">Order Details</span>
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="primary" (click)="DeleteOrder()" *ngIf="order?.status === 'Delivered' ||  order?.status === 'Cancelled'">
+        <ion-icon name="trash"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <ion-item-divider class="normaltext" color="primary">Supplier Details</ion-item-divider>
+    <div text-justify class="normaltext">
+      <ion-item>
+        <div class="desc">Supplier Name</div>
+        <span ion-text color="primary">{{order?.SupplierName}}</span>
+      </ion-item>
+      <ion-item>
+        <div class="desc">Supplier Phone</div>
+        <span ion-text color="primary">{{order?.SupplierPhone}}</span>
+      </ion-item>
+    </div>
+    <ion-item-divider class="normaltext" color="primary">Customer Details</ion-item-divider>
+    <div text-justify class="normaltext">
+      <ion-item>
+        <div class="desc">Customer Name</div>
+        <span ion-text color="primary">{{order?.CustomerName}}</span>
+      </ion-item>
+      <ion-item>
+        <div class="desc">Customer Phone</div>
+        <span ion-text color="primary">{{order?.CustomerPhone}}</span>
+      </ion-item>
+    </div>
+    <ion-item-group>
+      <ion-item-divider class="normaltext" color="primary">Order Details</ion-item-divider>
+      <div text-justify class="normaltext">
+        <ion-item>
+          <div class="desc">Delivery Location</div>
+          <span ion-text color="primary" class="wrap">{{order?.deliveryaddress}}</span>
+        </ion-item>
+        <ion-item>
+          <div class="desc wrap">Order Number</div>
+          <span ion-text color="primary">{{order?.ordernumber}}</span>
+        </ion-item>
+        <ion-item>
+          <div class="desc">Delivery Status</div>
+          <span ion-text color="primary">{{order?.status}}</span>
+        </ion-item>
+        <ion-item>
+          <div class="desc">Delivery Note</div>
+          <span ion-text color="primary">{{order?.substatus}}</span>
+        </ion-item>
+        <ion-item>
+          <div class="desc">Booked Date</div>
+          <span ion-text color="primary">{{order?.bookeddate}}</span>
+        </ion-item>
+        <ion-item>
+          <div class="desc">Booked Time</div>
+          <span ion-text color="primary">{{order?.bookedtime}}</span>
+        </ion-item>
+        <ion-item>
+          <div class="desc">Delivery Date</div>
+          <span ion-text color="primary" *ngIf="order?.deliverydate !== 'null'">{{order?.deliverydate}}</span>
+        </ion-item>
+        <ion-item>
+          <div class="desc">Delivery Time</div>
+          <span ion-text color="primary" *ngIf="order?.deliverytime !== 'null'">{{order?.deliverytime}}</span>
+        </ion-item>
+
+      </div>
+    </ion-item-group>
+    <ion-item-group>
+      <ion-item-divider class="normaltext" color="primary">Products Details</ion-item-divider>
+      <ion-item *ngFor="let product of products">
+        <ion-avatar item-start *ngIf="product.product_catid === '8'">
+          <img src="assets/img/cat8.jpg">
+        </ion-avatar>
+        <ion-avatar item-start *ngIf="product.product_catid === '7'">
+          <img src="assets/img/cat7.jpg">
+        </ion-avatar>
+        <ion-avatar item-start *ngIf="product.product_catid === '6'">
+          <img src="assets/img/cat6.jpg">
+        </ion-avatar>
+        <ion-avatar item-start *ngIf="product.product_catid === '5'">
+          <img src="assets/img/cat5.jpg">
+        </ion-avatar>
+        <ion-avatar item-start *ngIf="product.product_catid === '4'">
+          <img src="assets/img/cat4.jpg">
+        </ion-avatar>
+        <ion-avatar item-start *ngIf="product.product_catid === '3'">
+          <img src="assets/img/cat3.jpg">
+        </ion-avatar>
+        <ion-avatar item-start *ngIf="product.product_catid === '2'">
+          <img src="assets/img/cat2.jpg">
+        </ion-avatar>
+        <ion-avatar item-start *ngIf="product.product_catid === '1'">
+          <img src="assets/img/cat1.jpg">
+        </ion-avatar>
+        <h2>{{product.name}}</h2>
+        <p class="mini-margintop">{{product.properties}}</p>
+        <p class="mini-margintop">Quantity: {{product.Quantity}}</p>
+        <ion-note item-end class="blacktext">{{product.price | currency: 'NGN': '1.2-2'}}</ion-note>
+      </ion-item>
+    </ion-item-group>
+    <ion-item>
+      <div class="desc">Delivery Fees</div>
+      <span ion-text color="primary">{{order?.deliveryfee}}</span>
+    </ion-item>
+    <ion-item>
+      <div class="desc">Total Amount</div>
+      <span ion-text color="primary">{{order?.amount | currency: 'NGN': '1.2-2'}}</span>
+    </ion-item>
+    <div text-justify class="hide normaltext center lineup half-padding lightbordertop">
+      <button ion-button round medium class="center" (click)="CancelOrder()" *ngIf="order?.substatus === 'Pending Confirmation'">Cancel Order</button>
+      <button ion-button round medium class="center" (click)="AcceptOrder(order?.CustomerID)" *ngIf="order?.substatus === 'Pending Confirmation'">Accept Order</button>
+      <button ion-button round medium class="center" (click)="ConfirmOrder(order?.CustomerID)" *ngIf="order?.substatus === 'Pending Delivery'">Confirm Payment</button>
+    </div>
+  </div>
+</ion-content>

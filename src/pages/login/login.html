@@ -1,0 +1,39 @@
+<ion-header>
+    <ion-navbar color="primary">
+    <button ion-button menuToggle>
+        <ion-icon name="menu" color="primary"></ion-icon>
+      </button>
+      <ion-title><span class="blacktext">Login</span></ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content  >
+  <ion-card class="gred">
+    <ion-card-header>
+      <i class="fa fa-fw fa-lock"></i><span class="whitetext">WaterMart</span>
+       
+    </ion-card-header>
+    <ion-card-content>
+      <form [formGroup]="login">
+        <ion-list>
+          <ion-item>
+            <ion-label stacked>Email</ion-label>
+            <ion-input type="text" formControlName="txt_email"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label stacked>Password</ion-label>
+            <ion-input type="password" formControlName="txt_password"></ion-input>
+          </ion-item>
+        </ion-list>
+        <button ion-button block outline color="primary" round (click)="loginForm(login)" type="submit" class="margintop" [disabled]="!login.valid">Login</button>
+        <div class="textleft normaltext paddingtop margintop" ion-text color="primary" (click)="ResetPassword()">Forgot Password?</div>
+        <div class="margintop mediumtext textleft bold">New Customer?</div>
+        <button ion-button outline block round class="" (click)="Signup()">Signup</button>
+        <div class="margintop"></div>
+        <div class="margintop mediumtext textleft bold">New Supplier?</div>
+        <button ion-button outline block round class="" (click)="Register()">Register</button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+  
+</ion-content>

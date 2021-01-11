@@ -1,0 +1,148 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu" color="primary"></ion-icon>
+    </button>
+    <ion-title>
+      <span class="blacktext">Details</span>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="">
+  <ion-item-group>
+    <ion-item-divider class="normaltext" color="primary">Place Order Details</ion-item-divider>
+    <div text-justify class="normaltext lineup half-padding">
+        <ion-item>
+            <div class="desc">Product Ordered For</div>
+            <div ion-text class="" color="primary">{{supplier?.name}}</div>
+          </ion-item>
+          <ion-item>
+            <div class="desc">Price</div>
+            <div ion-text class="" color="primary" id="pprice">{{supplier?.price | currency: 'NGN': '1.2-2'}}</div>
+          </ion-item>
+          <ion-item>
+            <div class="desc">Properties</div>
+            <div class="parts bold slightly-largetext half-margintop" *ngFor="let prop of props">
+              <div class="mediumtext greytext">{{prop.PropName}}</div>
+              <div class="">{{prop.PropValue}}</div>
+            </div>
+          </ion-item>
+      <form [formGroup]="PlaceOrderForm">
+        <ion-item>
+          <ion-label stacked class="bold normaltext blacktext">Select New Nearest Area</ion-label>
+          <ion-select [class.invalid]="!PlaceOrderForm.controls.location.valid && (PlaceOrderForm.controls.location.dirty || submitAttempt)"
+            formControlName="location" class="myselect" (ngModelChange)="onLocationSelect($event)" placeholder="Select location"
+            required>
+            <ion-option *ngFor="let location of locations" value="{{ location.id }}">{{ location.name}}</ion-option>
+          </ion-select>
+        </ion-item>
+        <div class="" id="deliveryadd">
+          <ion-item>
+            <ion-label stacked class="bold normaltext blacktext">Delivery Address</ion-label>
+            <ion-input type="text" placeholder="Enter delivery address" formControlName="deliveryaddress" value="" class="borderbottomprimary center wide textcenter white txt-small">
+            </ion-input>
+          </ion-item>
+        </div>
+      </form>
+      <ion-item-group>
+        <ion-item>
+          <ion-label stacked class="bold normaltext blacktext">Change Quantity</ion-label>
+          <ion-input [(ngModel)]="request.quantity" (ngModelChange)="onChangeLitre($event)" id="" value=""
+            type="number" placeholder="change quantity" name="quantity" max="500000" required>
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Delivery Location</ion-label>
+          <ion-badge item-right class="newColor half-padding"> {{location?.name}}</ion-badge>
+        </ion-item>
+        <ion-item>
+          <ion-label>Delivery Fees</ion-label>
+          <ion-badge item-right class="newColor half-padding">{{location?.fees}}</ion-badge>
+        </ion-item>
+        <ion-item>
+          <ion-label>Total Amount</ion-label>
+          <ion-badge item-right class="newColor half-padding" id="totalamount">{{totalamount | currency: 'NGN': '1.2-2'}}</ion-badge>
+        </ion-item>
+        <div class="half-margintop half-marginbottom">
+          <hr class="bordertop">
+        </div>
+        <ion-item>
+          <ion-label>Grand Total</ion-label>
+          <ion-badge item-right class="newColor half-padding" id="grandtotal">{{grandtotal | currency: 'NGN': '1.2-2'}}</ion-badge>
+        </ion-item>
+      </ion-item-group>
+    </div>
+    <ion-item-divider class="normaltext" color="primary">Supplier Details</ion-item-divider>
+    <div text-justify class="normaltext lineup half-padding">
+      <ion-item>
+        <div class="desc">Name</div>
+        <span ion-text color="primary">{{supplier?.business_name}}</span>
+      </ion-item>
+      <ion-item>
+        <div class="desc">NAFDAC Number</div>
+        <span ion-text color="primary">{{supplier?.nafdac_number}}</span>
+      </ion-item>
+
+      <ion-item>
+        <div class="desc">Address</div>
+        <span ion-text color="primary">{{supplier?.address}}</span>
+      </ion-item>
+    </div>
+    <ion-item-divider class="normaltext" color="primary">Rate Supplier</ion-item-divider>
+    <div text-justify class="normaltext lineup half-padding ">
+      <ion-item>
+        <div class="desc">Rate Supplier</div>
+        <rating [(ngModel)]="rate" readOnly="false" max="5" emptyStarIconName="star-outline" halfStarIconName="star-half" starIconName="star"
+          nullable="false" (ngModelChange)="onRateSupplier($event, supplier?.supplier_userid)">
+        </rating>
+        <p ion-text color="primary">Very Bad (1) - Bad(2) - Ok(3)</p>
+        <p ion-text color="primary">Good(4) - Very Good(5)</p>
+      </ion-item>
+    </div>
+    <ion-item-divider class="normaltext" color="primary">Supplier Products
+      <i class="fa fa-arrow-circle-down right half-marginright slightly-largetext" (click)="showAccount()" id="showAcct"></i>
+      <i class="fa fa-arrow-circle-up right half-marginright slightly-largetext hide" (click)="hideAccount()" id="hideAcct"></i>
+    </ion-item-divider>
+    <div text-justify class="normaltext lineup half-padding hide" id="acctstmtform">
+      <ion-list class="neg-half-marginleft neg-half-marginright">
+        <ion-item *ngFor="let product of products" class="">
+          <ion-avatar item-start *ngIf="product.product_catid === '8'">
+            <img src="assets/img/cat8.jpg">
+          </ion-avatar>
+          <ion-avatar item-start *ngIf="product.product_catid === '7'">
+            <img src="assets/img/cat7.jpg">
+          </ion-avatar>
+          <ion-avatar item-start *ngIf="product.product_catid === '6'">
+            <img src="assets/img/cat6.jpg">
+          </ion-avatar>
+          <ion-avatar item-start *ngIf="product.product_catid === '5'">
+            <img src="assets/img/cat5.jpg">
+          </ion-avatar>
+          <ion-avatar item-start *ngIf="product.product_catid === '4'">
+            <img src="assets/img/cat4.jpg">
+          </ion-avatar>
+          <ion-avatar item-start *ngIf="product.product_catid === '3'">
+            <img src="assets/img/cat3.jpg">
+          </ion-avatar>
+          <ion-avatar item-start *ngIf="product.product_catid === '2'">
+            <img src="assets/img/cat2.jpg">
+          </ion-avatar>
+          <ion-avatar item-start *ngIf="product.product_catid === '1'">
+            <img src="assets/img/cat1.jpg">
+          </ion-avatar>
+          <h2 (click)="getMartSupplierDetails(product.id)">{{product.name}}</h2>
+          <p class="mini-margintop">{{product.properties}}</p>
+          <ion-note item-end class="blacktext">{{product.price | currency: 'NGN': '1.2-2'}}</ion-note>
+        </ion-item>
+      </ion-list>
+    </div>
+  </ion-item-group>
+</ion-content>
+<ion-footer>
+    <ion-toolbar no-border>
+      <div class="mini-margintop">
+        <button ion-button block (click)="PlaceOrder()"><i class="fa fa-shopping-cart marginright slightly-largetext"></i> Place Order</button>
+      </div>
+    </ion-toolbar>
+  </ion-footer>

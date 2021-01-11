@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-navbar color="primary">
+  <button ion-button menuToggle>
+      <ion-icon name="menu" color="primary"></ion-icon>
+    </button>
+    <ion-title><span class="blacktext">Home</span></ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content >
+  <div class="tilebar">
+    <div class="tile tile1">
+      <div class="tilehead">Account</div>
+      <div class="tilenote">
+        <div class="left" (click)="getBal()">
+          <div class="desc">Available Balance</div>
+          <div class="normaltext bold"> {{totalbalance | currency: 'NGN': '1.2-2'}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tilebar">
+    <div class="tile tile3">
+      <div class="tilehead">Orders </div>
+      <div class="tilenote">
+        <div class="left" (click)="getPend()">
+          <div class="desc">Pending </div>
+          <div class="normaltext bold" >{{totalpending}}</div>
+        </div>
+        <div class="right" (click)="getCanc()">
+          <div class="desc">Cancelled</div>
+          <div class="normaltext bold" >{{totalcancelled}}</div>
+        </div>
+        <div class="center" (click)="getDeli()">
+          <div class="desc">Delivered</div>
+          <div class="normaltext bold">{{totaldelivered}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="tilebar">
+    <div class="tile tile4">
+      <div class="tilehead">Products </div>
+      <div class="tilenote">
+        <div class="left" (click)="getProd()">
+          <div class="desc">Product(s) </div>
+          <div class="normaltext bold">{{totalproducts}}</div>
+        </div>
+       
+      </div>
+    </div>
+  </div>
+
+  <div class="tilebar">
+    <div class="tile tile5">
+      <div class="tilehead">Messages</div>
+      <div class="tilenote">
+        <div class="left" (click)="getInbox()">
+          <div class="desc">Inbox </div>
+          <div class="normaltext bold">{{totalInboxmsgs}}</div>
+        </div>
+        <div class="right" (click)="getSent()">
+          <div class="desc">Sent</div>
+          <div class="normaltext bold">{{totalSentmsgs}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tilebar">
+    <div class="tile tile6">
+      <div class="tilehead">Locations</div>
+      <div class="tilenote">
+        <div class="left" (click)="getLoca()">
+          <div class="desc">Location(s)</div>
+          <div class="normaltext bold">{{totallocations}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

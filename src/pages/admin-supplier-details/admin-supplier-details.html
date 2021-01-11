@@ -1,0 +1,113 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu" color="primary"></ion-icon>
+    </button>
+    <ion-title>
+      <span class="blacktext">{{supplier?.business_name}} Details</span>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-card class="radius cardheight">
+    <ion-card-content>
+      <div class="overflow">
+        <ion-item-group id="profile" class="">
+          <div text-justify class="normaltext lineup half-padding">
+            <div class="profiles">
+              <div class="desc normaltext" ion-text color="primary">Business Name </div>
+              <div class="slightly-largetext bold">{{supplier?.business_name}}</div>
+            </div>
+            <div class="profiles">
+              <div class="desc normaltext" ion-text color="primary">NAFDAC Number</div>
+              <div class="slightly-largetext bold">{{supplier?.nafdac_number}}</div>
+            </div>
+            <div class="profiles">
+              <div class="desc normaltext" ion-text color="primary">Code </div>
+              <div class="slightly-largetext bold">{{supplier?.supplier_code}}</div>
+            </div>
+            <div class="profiles">
+              <div class="desc normaltext" ion-text color="primary">Account Balance </div>
+              <div class="slightly-largetext bold">{{supplier?.account_bal}}</div>
+            </div>
+            <div class="profiles">
+              <div class="desc normaltext" ion-text color="primary">Transaction Number </div>
+              <div class="slightly-largetext bold">{{supplier?.transaction_number}}</div>
+            </div>
+            <div class="profiles">
+              <div class="desc normaltext" ion-text color="primary">Supplier WaterMart Balance </div>
+              <div class="slightly-largetext bold">{{supplier?.admin_account_bal}}</div>
+            </div>
+            <div class="profiles">
+              <div class="desc normaltext" ion-text color="primary">Payment Plan </div>
+              <div class="slightly-largetext bold">{{supplier?.PaymentPlan}}</div>
+            </div>
+            <div class="profiles">
+              <div class="desc normaltext" ion-text color="primary">Payment Date </div>
+              <div class="slightly-largetext bold">{{supplier?.PaymentDate}}</div>
+            </div>
+            <div class="profiles">
+              <div class="desc normaltext" ion-text color="primary">Payment Amount </div>
+              <div class="slightly-largetext bold">{{supplier?.PaymentAmount}}</div>
+            </div>
+            <div class="profiles">
+              <div class="desc normaltext" ion-text color="primary">Payment Status </div>
+              <div class="slightly-largetext bold">{{supplier?.PaymentStatus}}</div>
+            </div>
+            <div class="profiles">
+              <div class="desc normaltext" ion-text color="primary">Payment Due Date </div>
+              <div class="slightly-largetext bold">{{supplier?.PaymentDueDate}}</div>
+            </div>
+            <div class="profiles">
+              <div class="desc normaltext" ion-text color="primary">Ratings </div>
+              <div class="slightly-largetext bold">
+                <div *ngIf="supplier?.ratevalue >= '5'">
+                  <img src="assets/img/star5.jpg">
+                </div>
+                <div *ngIf="supplier?.ratevalue >= '4' && supplier?.ratevalue < '5'">
+                  <img src="assets/img/star4.jpg">
+                </div>
+                <div *ngIf="supplier?.ratevalue >= '3' && supplier?.ratevalue < '4'">
+                  <img src="assets/img/star3.jpg">
+                </div>
+                <div *ngIf="supplier?.ratevalue >= '2'  && supplier?.ratevalue < '3'">
+                  <img src="assets/img/star2.jpg">
+                </div>
+                <div *ngIf="supplier?.ratevalue >= '1' && supplier?.ratevalue < '2'">
+                  <img src="assets/img/star1.jpg">
+                </div>
+                <div *ngIf="supplier?.ratevalue < '1'">
+                  <img src="assets/img/star0.jpg">
+                </div>
+              </div>
+            </div>
+            <div class="profiles">
+              <div class="desc normaltext" ion-text color="primary">FirstName </div>
+              <div class="slightly-largetext bold">{{supplier?.firstname}}</div>
+            </div>
+            <div class="profiles">
+              <div class="desc normaltext" ion-text color="primary">LastName</div>
+              <div class="slightly-largetext bold">{{supplier?.lastname}}</div>
+            </div>
+            <div class="profiles">
+              <div class="desc normaltext" ion-text color="primary">Phone</div>
+              <div class="slightly-largetext bold">{{supplier?.phone}}</div>
+            </div>
+
+            <div class="profiles">
+              <div class="desc normaltext" ion-text color="primary">Date Joined</div>
+              <div class="slightly-largetext bold">{{supplier?.date_created}}</div>
+            </div>
+            <div class="profiles">
+              <div class="desc normaltext" ion-text color="primary">Address</div>
+              <div class="slightly-largetext bold wrap">{{supplier?.address}}</div>
+            </div>
+          </div>
+        </ion-item-group>
+
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

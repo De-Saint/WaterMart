@@ -1,0 +1,30 @@
+page-supplier-message-details {
+    ion-header::after {
+        background: transparent;
+        background-image: none !important;
+      }
+      .toolbar {
+        .toolbar-background{
+          background: transparent;
+        }
+      }
+    .splashImage{
+        background-image: url("../assets/img/bg2.jpg");
+        background-size: cover;
+    }
+
+    .nobgcolor{
+        background-color: transparent !important; 
+    }
+
+    .hangmore2 {
+        position: fixed;
+        right: 0.3em;
+        z-index: 10000
+    }
+    
+    .tilenote {
+        margin: 0.2em 0;
+        overflow: auto;
+    }
+}

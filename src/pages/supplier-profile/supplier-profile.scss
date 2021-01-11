@@ -1,0 +1,24 @@
+page-supplier-profile {
+    ion-header::after {
+        background: transparent;
+        background-image: none !important;
+      }
+      .toolbar {
+        .toolbar-background{
+          background: transparent;
+        }
+      }
+    .splashImage{
+        background-image: url("../assets/img/bg2.jpg");
+        background-size: cover;
+    }
+    .profiles{
+      display: inline-block;
+      vertical-align: top;
+      width: 49%;
+      margin-bottom: 2em;
+  }
+  .profiles:nth-child(even) {
+    text-align: right;
+  }
+}

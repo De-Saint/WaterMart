@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu" color="primary"></ion-icon>
+    </button>
+    <ion-title>
+      <span class="blacktext">Suppliers</span>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content >
+  <ion-searchbar [(ngModel)]="searchTerm" (ionCancel)="onCancel($event)" [showCancelButton]="true" (ionClear)="onClear($event)"
+  (ionInput)="searchSuppliers()" class="wide"></ion-searchbar>
+<ion-list>
+  <ion-item *ngFor="let supplier of suppliers" (click)="goToDetails(supplier.userid, supplier.business_name, supplier.phone)">
+    <i class="fa fa-user-circle slighly-largetext marginright"></i>
+    {{supplier.business_name}}
+    <ion-note item-end class="blacktext">
+      {{supplier.status}}
+    </ion-note>
+  </ion-item>
+</ion-list>
+<div class="marginleft paddingleft marginright paddingright marginbottom margintop" *ngIf="nouser === 'nouser'">
+  No Suppliers
+</div>
+</ion-content>

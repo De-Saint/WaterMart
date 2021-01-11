@@ -1,0 +1,68 @@
+page-admin-home {
+    ion-header::after {
+        background: transparent;
+        background-image: none !important;
+      }
+      .toolbar {
+        .toolbar-background{
+          background: transparent;
+        }
+      }
+    .splashImage{
+        background-image: url("../assets/img/bg2.jpg");
+        background-size: cover;
+    }
+    .tile1 {
+      background-color: rgba($color: #f92, $alpha: 0.7);
+  }
+  
+  .tile2 {
+      background-color: rgba($color: tomato, $alpha: 0.7);
+  }
+  
+  .tile3 {
+      background-color: rgba($color: fuchsia, $alpha: 0.7);
+  }
+  
+  .tile4 {
+      background-color: rgba($color: dodgerblue, $alpha: 0.7);
+  }
+  .tile5 {
+      background-color: rgba($color: darkmagenta, $alpha: 0.7);
+  }
+  .tile6 {
+      background-color: rgba($color: black, $alpha: 0.7);
+  }
+  
+  .whitetile {
+      color: #333 !important;
+      background-color: #fff !important;
+  }
+  
+  .tilebar {
+      display: inline-block;
+      vertical-align: top;
+      width: 100%;
+  }
+  
+  .tile {
+      display: inline-block;
+      vertical-align: top;
+      width: 100%;
+      margin-right: 1.5em;
+      margin-bottom: 1.5em;
+      font-size: 1em;
+      padding: 1em 2em;
+      color: #fff;
+  }
+  
+  .tilehead {
+      position: relative;
+      font-size: 1.5em;
+  }
+  
+  .tilenote {
+      margin: 0.2em 0;
+      overflow: auto;
+  }
+}

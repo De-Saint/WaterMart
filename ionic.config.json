@@ -1,0 +1,8 @@
+{
+  "name": "WaterMart",
+  "app_id": "067ffb4e",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

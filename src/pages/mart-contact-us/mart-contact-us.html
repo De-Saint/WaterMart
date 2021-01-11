@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-navbar color="primary">
+  <button ion-button menuToggle>
+      <ion-icon name="menu" color="primary"></ion-icon>
+    </button>
+    <ion-title><span class="blacktext">Contact Us</span></ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content >
+  <ion-card>
+    <ion-card-header>
+        <i class="fa fa-map-marker half-marginright" ></i><span class="bold">Office Address</span>
+    </ion-card-header>
+    <ion-card-content>
+      <div class="normaltext half-marginleft">2nd Floor, The Landmark Ikota Complex KM24 Lekki-Exp Expressway, Lagos, Nigeria. </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+      <ion-card-header>
+          <i class="fa fa-calendar-check-o half-marginright" ></i><span class="bold">Working Hours/Days</span>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="normaltext half-marginleft">8am - 5pm</div>
+        <div class="normaltext half-marginleft margintop">Monday - Saturday</div>
+      </ion-card-content>
+  </ion-card>
+
+
+
+<ion-card>
+<ion-card-header>
+    <i class="fa fa-phone half-marginright"></i><span class="bold">Call</span>
+</ion-card-header>
+<ion-card-content>
+    <button ion-button round color="dark" medium class="center left whitetext"  (click)="Call('07067483120')">07067483120</button>
+    <button ion-button round medium color="dark" class="center right whitetext" (click)="Call('08060480903')">08060480903</button>
+    <div style="clear:both;" class="margin"></div>
+</ion-card-content>
+</ion-card>
+
+
+<ion-card>
+  <ion-card-header>
+   <i class="fa fa-envelope half-marginright bold" ></i><span class="bold">Message</span>
+  </ion-card-header>
+  <ion-card-content>
+      <button ion-button outline round (click)="SendMessage()"  class="margintop  half-marginleft" >Send Us a Message</button>
+  </ion-card-content>
+</ion-card>
+
+</ion-content>

@@ -1,0 +1,21 @@
+page-supplier-signup {
+    ion-header::after {
+        background: transparent;
+        background-image: none !important;
+      }
+      .toolbar {
+        .toolbar-background{
+          background: transparent;
+        }
+      }
+    .splashImage{
+        background-image: url("../assets/img/bg2.jpg");
+        background-size: cover;
+    }
+    #gred{
+      background-image: -webkit-gradient(
+          linear, left top, left bottom, from(rgba(107, 161, 212, 0.8)),
+          to(rgba(255,255,255,0.2)), color-stop(.7,#fff)
+        );
+      }
+}

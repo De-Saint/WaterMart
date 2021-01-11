@@ -1,0 +1,109 @@
+<ion-header>
+  <ion-navbar color="primary">
+  <button ion-button menuToggle>
+      <ion-icon name="menu" color="primary"></ion-icon>
+    </button>
+    <ion-title><span class="blacktext">Home</span></ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content >
+  <div class="tilebar">
+    <div class="tile tile1">
+      <div class="tilehead">Account</div>
+      <div class="tilenote">
+        <div class="left" (click)="getBal()">
+          <div class="desc">Available Balance</div>
+          <div class="normaltext bold"> {{totalbalance | currency: 'NGN': '1.2-2'}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tilebar">
+    <div class="tile tile6">
+      <div class="tilehead">Suppliers</div>
+      <div class="tilenote">
+        <div class="left" (click)="getSupp()">
+          <div class="desc">All </div>
+          <div class="normaltext bold">{{totalsuppliers}}</div>
+        </div>
+        <div class="right">
+          <div class="desc">Inactive</div>
+          <div class="normaltext bold">{{totalnonactivatedsuppliers}}</div>
+        </div>
+        <div class="center">
+          <div class="desc">Active</div>
+          <div class="normaltext bold">{{totalactivatedsuppliers}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tilebar">
+    <div class="tile tile2">
+      <div class="tilehead">Customers</div>
+      <div class="tilenote">
+        <div class="left" (click)="getCust()">
+          <div class="desc">Customer(s)</div>
+          <div class="normaltext bold">{{totalcustomers}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="tilebar">
+      <div class="tile tile3">
+        <div class="tilehead">Orders </div>
+        <div class="tilenote">
+          <div class="left" (click)="getPend()">
+            <div class="desc" >Pending </div>
+            <div class="normaltext bold" >{{totalpending}}</div>
+          </div>
+          <div class="right" (click)="getCanc()">
+            <div class="desc">Cancelled</div>
+            <div class="normaltext bold" >{{totalcancelled}}</div>
+          </div>
+          <div class="center" (click)="getDeli()">
+            <div class="desc">Delivered</div>
+            <div class="normaltext bold">{{totaldelivered}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  
+  <div class="tilebar">
+    <div class="tile tile4">
+      <div class="tilehead">Payment Plans Subscribers </div>
+      <div class="tilenote">
+        <div class="left"  (click)="getMFRBal()">
+          <div class="desc">Monthly Fixed Rate </div>
+          <div class="normaltext bold">{{totalmonthlyrateSubs}}</div>
+        </div>
+        <div class="right"  (click)="getPPTBal()">
+          <div class="desc">% - Per Transaction </div>
+          <div class="normaltext bold">{{totalpercentageSubs}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tilebar">
+    <div class="tile tile5">
+      <div class="tilehead">Messages</div>
+      <div class="tilenote">
+        <div class="left"  (click)="getInbox()">
+          <div class="desc">Inbox </div>
+          <div class="normaltext bold">{{totalInboxmsgs}}</div>
+        </div>
+        <div class="right"  (click)="getSent()">
+          <div class="desc">Sent</div>
+          <div class="normaltext bold">{{totalSentmsgs}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </ion-content>

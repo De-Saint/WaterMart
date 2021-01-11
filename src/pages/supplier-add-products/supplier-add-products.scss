@@ -1,0 +1,20 @@
+page-supplier-add-products {
+    .resize{
+        height: 14em;
+        width: 10em;
+    }
+
+ion-header::after {
+    background: transparent;
+    background-image: none !important;
+  }
+  .toolbar {
+    .toolbar-background{
+      background: transparent;
+    }
+  }
+.splashImage{
+    background-image: url("../assets/img/bg2.jpg");
+    background-size: cover;
+}
+}

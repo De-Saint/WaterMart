@@ -1,0 +1,40 @@
+<ion-content no-bounce class="splashImage">
+    <ion-slides #slides (ionSlideWillChange)="onSlideChangeStart($event)" pager="true" paginationType="bullets">
+        <ion-slide>
+            <div class="bg-img">
+                <img class="welcomeimage center" src="assets/img/bgwhite.png">
+            </div>
+            <!-- <h2 class="slide-title">
+              <b class="yellowtext">Water Mart</b>
+              <hr class="halfwide bold"/>
+          </h2> -->
+            <p class="whitetext margin-vertical largetext center">
+                Join the Biggest Water market in Nigeria
+            </p>
+            <p class="whitetext largetext center">
+                Buy and Sell Water in all denominations
+            </p>
+        </ion-slide>
+
+        <ion-slide>
+            <div class="bg-img2">
+                <img class="welcomeimage center" src="assets/img/bgwoman.jpg">
+            </div>
+            <!-- <h2 class="slide-title">
+                    <b class="yellowtext">Water Mart</b>
+                    <hr class="halfwide bold"/>
+                </h2> -->
+            <p class="whitetext margin-vertical largetext center">
+                We Offer a great platform for you to sell your water based products
+            </p>
+            <p class="whitetext largetext center">
+                And buy water at the click of a button
+            </p>
+            <div class="placebtn">
+                <button ion-button round outline large (click)="getStarted()" class="whiteborder">
+                    <b>Get Started</b>
+                </button>
+            </div>
+        </ion-slide>
+    </ion-slides>
+</ion-content>
